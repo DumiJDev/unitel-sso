@@ -1,16 +1,29 @@
-import {ChangeEvent} from "react";
+import { OutlinedInput } from "@mui/material";
 
-export default function Input({value, typing} : InputFormsProps) {
-    const handleChange = (e: ChangeEvent<HTMLInputElement> | undefined)  => {
-        e?.preventDefault();
-        
-        typing(e?.target.value || "")
-    }
-    
-    return <input value={value} onChange={handleChange}/> 
+export default function Input({ value, typing, placeholder }: InputFormsProps) {
+  const handleChange = (e: ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement>) => {
+    e?.preventDefault();
+
+    typing(e?.target.value || "");
+  };
+
+  return (
+    <OutlinedInput
+      style={{
+        background: "transparent",
+        width: "80%",
+        height: 40,
+        color: "#000",
+      }}
+      value={value}
+      onChange={handleChange}
+      placeholder={placeholder}
+    />
+  );
 }
 
 type InputFormsProps = {
-    value: string | undefined;
-    typing: (value: string) => void | undefined;
-}
+  value: string | undefined;
+  typing: (value: string) => void | undefined;
+  placeholder: string;
+};

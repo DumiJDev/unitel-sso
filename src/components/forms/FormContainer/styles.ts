@@ -1,12 +1,12 @@
 import styled from "@emotion/styled";
-import { Colors } from "../../../constants/colors";
 
 export const Container = styled.div`
-    background-color: ${Colors.PRIMARY};
+    background-color: #fff;
     min-width: 300px;
     min-height: 200px;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-evenly;
     align-items: center;
     padding: 10px;
     border-radius: 10px;
