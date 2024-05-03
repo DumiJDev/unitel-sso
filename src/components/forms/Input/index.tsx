@@ -4,7 +4,9 @@ export default function Input({ value, typing, placeholder }: InputFormsProps) {
   const handleChange = (e:  React.ChangeEvent<HTMLInputElement>) => {
     e?.preventDefault();
 
-    typing(e?.target.value || "");
+    if (!e || !e.target.value.match(/[0-9]{0,9}/g)) return;
+
+    typing(e.target.value);
   };
 
   return (
